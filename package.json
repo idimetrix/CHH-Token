@@ -1,0 +1,33 @@
+{
+  "name": "CHH-Token",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node src/compile.js",
+    "prettier-contracts": "prettier --write --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
+    "prettier-sources": "prettier --write \"src/**/*.{js,jsx,json,md,html,css,scss,yaml,yml}\"",
+    "prettier": "pnpm prettier-contracts && pnpm prettier-sources",
+    "solhint": "./node_modules/.bin/solhint -f table contracts/**/*.sol",
+    "format": "pnpm prettier && pnpm solhint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "9.0.0",
+    "husky": "9.0.11",
+    "prettier": "3.2.5",
+    "prettier-plugin-solidity": "1.3.1",
+    "solhint": "4.5.4",
+    "solhint-plugin-prettier": "^0.1.0"
+  },
+  "dependencies": {
+    "solc": "0.8.25"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "pnpm format"
+    }
+  }
+}
